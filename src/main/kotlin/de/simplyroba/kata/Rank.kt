@@ -1,7 +1,8 @@
 package de.simplyroba.kata
 
 enum class Rank {
-    HIGHCARD,
+    HIGH_CARD,
     PAIR,
-    TWOPAIR
+    TWO_PAIR,
+    THREE_OF_A_KIND
 }
