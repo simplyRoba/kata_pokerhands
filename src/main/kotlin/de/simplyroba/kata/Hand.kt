@@ -15,7 +15,7 @@ class Hand(
 
     private fun isStraight(): Boolean {
         val sorted = cards
-            .map { card -> card.rank() }
+            .map { card -> card.rankAsNumber() }
             .sorted()
 
         for (x in 0..3) {

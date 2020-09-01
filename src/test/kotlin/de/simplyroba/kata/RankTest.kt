@@ -38,7 +38,13 @@ class RankTest {
 
     @Test
     fun `should rank a hand with a straight including pictures as STRAIGHT`() {
-        val hand = Hand(setOf("8H","TD","9S","QC","KD"))
+        val hand = Hand(setOf("8H","TD","9S","QC","JD"))
+        assertThat(hand.rank()).isEqualTo(Rank.STRAIGHT)
+    }
+
+    @Test
+    fun `should rank a hand with a straight including ace as one as STRAIGHT`() {
+        val hand = Hand(setOf("AH","2D","3S","4C","5D"))
         assertThat(hand.rank()).isEqualTo(Rank.STRAIGHT)
     }
 }
