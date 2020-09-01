@@ -32,7 +32,7 @@ class RankTest {
 
     @Test
     fun `should rank a hand with a straight as STRAIGHT`() {
-        val hand = Hand(setOf("1H","2D","3S","4C","5D"))
+        val hand = Hand(setOf("3H","6D","4S","2C","5D"))
         assertThat(hand.rank()).isEqualTo(Rank.STRAIGHT)
     }
 }
