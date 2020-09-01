@@ -29,4 +29,10 @@ class RankTest {
         val hand = Hand(setOf("2H","2D","2S","9C","KD"))
         assertThat(hand.rank()).isEqualTo(Rank.THREE_OF_A_KIND)
     }
+
+    @Test
+    fun `should rank a hand with a straight as STRAIGHT`() {
+        val hand = Hand(setOf("1H","2D","3S","4C","5D"))
+        assertThat(hand.rank()).isEqualTo(Rank.STRAIGHT)
+    }
 }

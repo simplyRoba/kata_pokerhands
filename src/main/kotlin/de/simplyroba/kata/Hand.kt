@@ -5,18 +5,19 @@ class Hand(
 ) {
     fun rank(): Rank {
         return when {
-            occurrenceOfPairs() == 1 -> Rank.PAIR
-            occurrenceOfPairs() == 2 -> Rank.TWO_PAIR
+            occurrenceOf(TypeOfOccurrence.PAIR) == 1 -> Rank.PAIR
+            occurrenceOf(TypeOfOccurrence.PAIR) == 2 -> Rank.TWO_PAIR
+            occurrenceOf(TypeOfOccurrence.THREE_OF_A_KIND) == 1 -> Rank.THREE_OF_A_KIND
             else -> Rank.HIGH_CARD
         }
     }
 
-    private fun occurrenceOfPairs(): Int {
+    private fun occurrenceOf(typeOfOccurrence: TypeOfOccurrence): Int {
         return cards
             .map { card -> card.rank() }
             .groupingBy { rank -> rank }
             .eachCount()
-            .filterValues { rank -> rank == 2 }
+            .filterValues { rank -> rank == typeOfOccurrence.numberOfCards }
             .size
     }
 }
